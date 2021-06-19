@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:greg_van_berkel/constants/story_card_customisation.dart';
+import 'package:greg_van_berkel/utils/responsiveness.dart';
 
 class StoryCard extends StatelessWidget {
   final String storyMarkup1;
@@ -28,15 +29,24 @@ class StoryCard extends StatelessWidget {
   }
 
   Card card(BuildContext context) {
+    bool wide = isWide(context);
+
     return Card(
       elevation: 0,
       color: StoryCardColour.forCategory(storyCategory),
-      child: Stack(
-        children: [
-          highlights(context),
-          content(),
-        ],
-      ),
+      child: wide
+          ? Stack(
+              children: [
+                highlights(context),
+                content(context),
+              ],
+            )
+          : Column(
+              children: [
+                content(context),
+                highlights(context),
+              ],
+            ),
     );
   }
 
@@ -47,36 +57,6 @@ class StoryCard extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            if (period != '')
-              ClipRRect(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(
-                    4.0,
-                  ),
-                ),
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    maxWidth: 300,
-                    minWidth: role != '' ? 300 : 0,
-                  ),
-                  child: Container(
-                    padding: EdgeInsets.all(
-                      12.0,
-                    ),
-                    // color: Colors.white.withAlpha(
-                    //   100,
-                    // ),
-                    child: Text(
-                      period,
-                      style: Theme.of(context).textTheme.subtitle1,
-                      textAlign: TextAlign.end,
-                    ),
-                  ),
-                ),
-              ),
-            SizedBox(
-              height: 8.0,
-            ),
             if (role != '')
               ClipRRect(
                 borderRadius: BorderRadius.only(
@@ -107,6 +87,16 @@ class StoryCard extends StatelessWidget {
                           role,
                           style: Theme.of(context).textTheme.subtitle1,
                         ),
+                        if (period != null)
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                period,
+                                style: Theme.of(context).textTheme.overline,
+                              ),
+                            ],
+                          ),
                       ],
                     ),
                   ),
@@ -118,7 +108,9 @@ class StoryCard extends StatelessWidget {
     );
   }
 
-  Padding content() {
+  Padding content(BuildContext context) {
+    bool wide = isWide(context);
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -142,7 +134,7 @@ class StoryCard extends StatelessWidget {
                 ),
               ),
               Container(
-                width: role != '' ? 300 : 0,
+                width: role != '' && wide ? 300 : 0,
               )
             ],
           ),

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:greg_van_berkel/constants/story_card_customisation.dart';
 import 'package:greg_van_berkel/controls/story_card.dart';
 import 'package:greg_van_berkel/controls/story_heading.dart';
+import 'package:greg_van_berkel/utils/responsiveness.dart';
 
 import 'home_logic.dart';
 
@@ -10,6 +11,7 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final logic = watch(homeScreenProvider);
+    bool wide = isWide(context);
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -26,14 +28,16 @@ class HomeScreen extends ConsumerWidget {
                 height: 24,
               ),
               Flex(
+                direction: wide ? Axis.horizontal : Axis.vertical,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                direction: Axis.horizontal,
+                mainAxisSize: wide ? MainAxisSize.max : MainAxisSize.min,
                 children: [
                   story(context, logic),
-                  SizedBox(
-                    width: 8.0,
-                  ),
-                  keyPoints(logic)
+                  if (wide)
+                    SizedBox(
+                      width: 8.0,
+                    ),
+                  keyPoints(context, logic)
                 ],
               ),
               SizedBox(
@@ -134,10 +138,6 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  bool isWide(BuildContext context) {
-    return MediaQuery.of(context).size.width > 1000;
-  }
-
   Widget highLevel(BuildContext context, HomeScreenLogic logic) {
     bool wide = isWide(context);
     return Flex(
@@ -170,8 +170,11 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  Expanded keyPoints(HomeScreenLogic logic) {
-    return Expanded(
+  Widget keyPoints(BuildContext context, HomeScreenLogic logic) {
+    bool wide = isWide(context);
+
+    return Flexible(
+      fit: wide ? FlexFit.tight : FlexFit.loose,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -230,7 +233,10 @@ class HomeScreen extends ConsumerWidget {
   }
 
   Widget story(BuildContext context, HomeScreenLogic logic) {
-    return Expanded(
+    bool wide = isWide(context);
+
+    return Flexible(
+      fit: wide ? FlexFit.tight : FlexFit.loose,
       flex: 2,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -253,15 +259,15 @@ class HomeScreen extends ConsumerWidget {
           ),
           StoryCard(
             storyCategory: StoryCategory.People,
-            period: '2009 to present day',
-            role: 'Agile coach and/or scrum master',
-            storyMarkup1: logic.emotionallySafeTeams,
-          ),
-          StoryCard(
-            storyCategory: StoryCategory.Business,
             period: '2007 to present day',
             role: 'Product manager and lead developer',
             storyMarkup1: logic.tfn,
+          ),
+          StoryCard(
+            storyCategory: StoryCategory.People,
+            period: '2009 to present day',
+            role: 'Agile coach and/or scrum master',
+            storyMarkup1: logic.emotionallySafeTeams,
           ),
           StoryCard(
             storyCategory: StoryCategory.Business,
