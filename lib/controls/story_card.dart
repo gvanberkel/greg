@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:greg_van_berkel/constants/story_card_customisation.dart';
 import 'package:greg_van_berkel/utils/responsiveness.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class StoryCard extends StatelessWidget {
   final String storyMarkup1;
@@ -121,6 +122,9 @@ class StoryCard extends StatelessWidget {
             children: [
               Expanded(
                 child: MarkdownBody(
+                  onTapLink: (text, href, title) {
+                    launch(href);
+                  },
                   styleSheet: MarkdownStyleSheet(
                     blockSpacing: 7,
                     listBulletPadding: EdgeInsets.all(0),
