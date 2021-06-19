@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:greg_van_berkel/constants/story_card_customisation.dart';
 import 'package:greg_van_berkel/controls/story_card.dart';
 import 'package:greg_van_berkel/controls/story_heading.dart';
 import 'package:greg_van_berkel/utils/responsiveness.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'home_logic.dart';
 
@@ -47,17 +50,70 @@ class HomeScreen extends ConsumerWidget {
               SizedBox(
                 height: 24,
               ),
+              Divider(),
+              SizedBox(
+                height: 24,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.email_outlined,
+                    size: 20,
+                  ),
+                  SizedBox(
+                    width: 4.0,
+                  ),
+                  SelectableText('gvanberkel@gmail.com'),
+                ],
+              ),
+              InkWell(
+                onTap: () {
+                  launch('https://twitter.com/gregvanberkel');
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/images/twitter.png',
+                      width: 20,
+                    ),
+                    SizedBox(
+                      width: 4.0,
+                    ),
+                    Text('gregvanberkel'),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 24,
+              ),
             ],
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _emailGreg(),
-        tooltip: 'Contact Greg',
-        child: Icon(
-          Icons.email,
-        ),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () async {
+      //     final Uri _emailLaunchUri = Uri(
+      //       scheme: 'mailto',
+      //       path: 'gvanberkel@gmail.com',
+      //       queryParameters: {'subject': 'Hi Greg!'},
+      //     );
+
+      //     var cl = await canLaunch(_emailLaunchUri.toString());
+
+      //     if (cl) {
+      //       launch(
+      //         _emailLaunchUri.toString(),
+      //       );
+      //     }
+      //   },
+      //   tooltip: 'Contact Greg',
+      //   child: Icon(
+      //     Icons.email,
+      //   ),
+      // ),
     );
   }
 
@@ -357,6 +413,4 @@ class HomeScreen extends ConsumerWidget {
       ],
     );
   }
-
-  _emailGreg() {}
 }
