@@ -301,17 +301,17 @@ class HomeScreen extends ConsumerWidget {
             storyMarkup1: logic.tfn,
           ),
           StoryCard(
-            storyCategory: StoryCategory.People,
-            period: '2009 to present day',
-            role: 'Agile coach and/or scrum master',
-            storyMarkup1: logic.emotionallySafeTeams,
-          ),
-          StoryCard(
             storyCategory: StoryCategory.Business,
             storyMarkup1: logic.guidepost,
             role:
                 'Developing the initial software architecture and currently accountable for dev team delivery',
             period: '2011 to present day',
+          ),
+          StoryCard(
+            storyCategory: StoryCategory.People,
+            period: '2009 to present day',
+            role: 'Agile coach and/or scrum master',
+            storyMarkup1: logic.emotionallySafeTeams,
           ),
           StoryCard(
             storyCategory: StoryCategory.Coding,

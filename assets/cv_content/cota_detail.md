@@ -2,7 +2,7 @@ Cota supports type safe database query and data mutation and generates code for 
 
 Technical highlights:
 - ORM for Microsoft SQL with code generators for C# and VB.NET
-- An HTTP transport adapter for Micro service architectures allowing for seperation of data access from one or more logic implementations.
+- An HTTP transport adapter for Micro service architectures allowing for separation of data access from one or more logic implementations.
 
 Cota had moderate success and has been implemented on over 10 relatively large code bases (a lot of which are still in production today).
 

@@ -5,4 +5,4 @@ The main focus areas are:
 - Validation patterns.
 - User authentication hooks.
 - Loading, invalid route, error screen widget hooks (with defaults if not implemented).
-- Common responsive screen layout patterns (with some flicker user controls where existing ones couldn't be found).
+- Common responsive screen layout patterns (with some Flicker user controls where existing ones couldn't be found).
