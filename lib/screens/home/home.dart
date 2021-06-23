@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:greg_van_berkel/constants/routes.dart';
 import 'package:greg_van_berkel/constants/story_card_customisation.dart';
 import 'package:greg_van_berkel/controls/story_card.dart';
 import 'package:greg_van_berkel/controls/story_heading.dart';
@@ -12,7 +13,7 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final logic = watch(homeScreenProvider);
-    bool wide = isWide(context);
+    bool wide = isWideScreen(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -165,7 +166,7 @@ class HomeScreen extends ConsumerWidget {
             SizedBox(
               width: 4.0,
             ),
-            Text('Coding things'),
+            Text('Mostly coding things'),
             SizedBox(
               width: 16.0,
             ),
@@ -176,7 +177,7 @@ class HomeScreen extends ConsumerWidget {
   }
 
   Widget highLevel(BuildContext context, HomeScreenLogic logic) {
-    bool wide = isWide(context);
+    bool wide = isWideScreen(context);
     return Flex(
       mainAxisSize: wide ? MainAxisSize.max : MainAxisSize.min,
       direction: wide ? Axis.horizontal : Axis.vertical,
@@ -208,7 +209,7 @@ class HomeScreen extends ConsumerWidget {
   }
 
   Widget keyPoints(BuildContext context, HomeScreenLogic logic) {
-    bool wide = isWide(context);
+    bool wide = isWideScreen(context);
 
     return Flexible(
       fit: wide ? FlexFit.tight : FlexFit.loose,
@@ -270,7 +271,7 @@ class HomeScreen extends ConsumerWidget {
   }
 
   Widget story(BuildContext context, HomeScreenLogic logic) {
-    bool wide = isWide(context);
+    bool wide = isWideScreen(context);
 
     return Flexible(
       fit: wide ? FlexFit.tight : FlexFit.loose,
@@ -301,7 +302,7 @@ class HomeScreen extends ConsumerWidget {
             storyMarkup1: logic.tfn,
           ),
           StoryCard(
-            storyCategory: StoryCategory.Business,
+            storyCategory: StoryCategory.People,
             storyMarkup1: logic.guidepost,
             role:
                 'Developing the initial software architecture and currently accountable for dev team delivery',
@@ -315,30 +316,12 @@ class HomeScreen extends ConsumerWidget {
           ),
           StoryCard(
             storyCategory: StoryCategory.Coding,
-            storyMarkup1: logic.flickerSummary,
-            storyMarkup2: logic.flickerDetail,
+            storyMarkup1: logic.developerFrameworksSummary,
+            storyMarkup2: logic.developerFrameworksDetail,
             role: 'Architect and primary developer',
-            period: '2021',
-          ),
-          StoryCard(
-            storyCategory: StoryCategory.Coding,
-            storyMarkup1: logic.slickJSSummary,
-            storyMarkup2: logic.slickJSDetail,
-            role: 'Architect and primary developer',
-            period: '2012',
-          ),
-          StoryCard(
-            storyCategory: StoryCategory.Coding,
-            storyMarkup1: logic.webFormsSPA,
-            role: 'Architect and primary developer',
-            period: '2008',
-          ),
-          StoryCard(
-            storyCategory: StoryCategory.Coding,
-            storyMarkup1: logic.cotaSummary,
-            storyMarkup2: logic.cotaDetail,
-            role: 'Architect and primary developer',
-            period: '2005',
+            moreInfoButtonText: 'More on deleloper frameworks',
+            moreInfoOnPressed: () => logic.navigate(Routes.developerFrameworks),
+            period: '2005 to present day',
           ),
         ],
       ),
@@ -346,7 +329,7 @@ class HomeScreen extends ConsumerWidget {
   }
 
   Widget photoAndIntro(BuildContext context, HomeScreenLogic logic) {
-    bool wide = isWide(context);
+    bool wide = isWideScreen(context);
 
     return Flex(
       direction: wide ? Axis.horizontal : Axis.vertical,

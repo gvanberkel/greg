@@ -48,6 +48,17 @@ class AboutGregApp extends StatelessWidget {
           primary: Colors.lightGreen[200],
           secondary: Colors.lightGreen[200],
         ),
+        textSelectionTheme: TextSelectionThemeData(
+          selectionColor: Colors.pink.shade100,
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            textStyle: GoogleFonts.raleway().copyWith(
+              color: Colors.black,
+            ),
+            primary: Colors.pink.shade800,
+          ),
+        ),
       ),
     );
   }

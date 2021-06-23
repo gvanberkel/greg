@@ -27,6 +27,8 @@ class HomeScreenLogic extends BaseLogic {
   String welcome;
   String aboutThisPage;
   String technologyExperience;
+  String developerFrameworksSummary;
+  String developerFrameworksDetail;
 
   @override
   Future<void> init() async {
@@ -39,11 +41,6 @@ class HomeScreenLogic extends BaseLogic {
     var codeCollectiveDetailFuture =
         rootBundle.loadString('assets/cv_content/code_collective_detail.md');
 
-    var cotaSummaryFuture =
-        rootBundle.loadString('assets/cv_content/cota_summary.md');
-    var cotaDetailFuture =
-        rootBundle.loadString('assets/cv_content/cota_detail.md');
-
     var emotionallySafeTeamsFuture =
         rootBundle.loadString('assets/cv_content/emotionaly_safe_teams.md');
 
@@ -55,13 +52,6 @@ class HomeScreenLogic extends BaseLogic {
     var guidepostFuture =
         rootBundle.loadString('assets/cv_content/guidepost.md');
     var tfnFuture = rootBundle.loadString('assets/cv_content/tfn.md');
-    var webFormsSPAFuture =
-        rootBundle.loadString('assets/cv_content/web_forms_spa.md');
-
-    var slickJSSummaryFuture =
-        rootBundle.loadString('assets/cv_content/slick_js_summary.md');
-    var slickJSDetailFuture =
-        rootBundle.loadString('assets/cv_content/slick_js_detail.md');
 
     var goals2021Future =
         rootBundle.loadString('assets/cv_content/goals_2021.md');
@@ -84,13 +74,16 @@ class HomeScreenLogic extends BaseLogic {
     var technologyExperienceFuture =
         rootBundle.loadString('assets/cv_content/technology_experience.md');
 
+    var developerFrameworksSummaryFuture = rootBundle
+        .loadString('assets/cv_content/developer_frameworks_summary.md');
+
+    var developerFrameworksDetailFuture = rootBundle
+        .loadString('assets/cv_content/developer_frameworks_detail.md');
+
     education = await educationFuture;
     me = await meFuture;
     codeCollectiveSummary = await codeCollectiveSummaryFuture;
     codeCollectiveDetail = await codeCollectiveDetailFuture;
-
-    cotaSummary = await cotaSummaryFuture;
-    cotaDetail = await cotaDetailFuture;
 
     emotionallySafeTeams = await emotionallySafeTeamsFuture;
 
@@ -99,10 +92,6 @@ class HomeScreenLogic extends BaseLogic {
 
     guidepost = await guidepostFuture;
     tfn = await tfnFuture;
-    webFormsSPA = await webFormsSPAFuture;
-
-    slickJSSummary = await slickJSSummaryFuture;
-    slickJSDetail = await slickJSDetailFuture;
 
     goals2021 = await goals2021Future;
     lookingFor = await lookingForFuture;
@@ -114,6 +103,9 @@ class HomeScreenLogic extends BaseLogic {
     aboutThisPage = await aboutThisPageFuture;
     technologyExperience = await technologyExperienceFuture;
     stretchGoals2021 = await stretchGoals2021Future;
+
+    developerFrameworksSummary = await developerFrameworksSummaryFuture;
+    developerFrameworksDetail = await developerFrameworksDetailFuture;
 
     notifyScreen(true);
   }

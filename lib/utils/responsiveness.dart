@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
-bool isWide(BuildContext context) {
+bool isWideScreen(BuildContext context) {
   return MediaQuery.of(context).size.width > 1000;
 }

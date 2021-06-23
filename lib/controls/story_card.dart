@@ -11,6 +11,8 @@ class StoryCard extends StatelessWidget {
   final String period;
   final String role;
   final bool expanded;
+  final String moreInfoButtonText;
+  final VoidCallback moreInfoOnPressed;
 
   const StoryCard({
     Key key,
@@ -20,6 +22,8 @@ class StoryCard extends StatelessWidget {
     this.period = '',
     this.role = '',
     this.expanded = false,
+    this.moreInfoButtonText,
+    this.moreInfoOnPressed,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -30,7 +34,7 @@ class StoryCard extends StatelessWidget {
   }
 
   Card card(BuildContext context) {
-    bool wide = isWide(context);
+    bool wide = isWideScreen(context);
 
     return Card(
       elevation: 0,
@@ -48,6 +52,20 @@ class StoryCard extends StatelessWidget {
                 highlights(context),
               ],
             ),
+    );
+  }
+
+  Row moreInfo() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        TextButton(
+          onPressed: this.moreInfoOnPressed,
+          child: Text(
+            this.moreInfoButtonText,
+          ),
+        ),
+      ],
     );
   }
 
@@ -89,14 +107,19 @@ class StoryCard extends StatelessWidget {
                           style: Theme.of(context).textTheme.subtitle1,
                         ),
                         if (period != null)
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                period,
-                                style: Theme.of(context).textTheme.overline,
-                              ),
-                            ],
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 4.0,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  period,
+                                  style: Theme.of(context).textTheme.overline,
+                                ),
+                              ],
+                            ),
                           ),
                       ],
                     ),
@@ -110,7 +133,7 @@ class StoryCard extends StatelessWidget {
   }
 
   Padding content(BuildContext context) {
-    bool wide = isWide(context);
+    bool wide = isWideScreen(context);
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -148,6 +171,7 @@ class StoryCard extends StatelessWidget {
                 data: storyMarkup2,
               ),
             ),
+          if (moreInfoButtonText != null) moreInfo(),
         ],
       ),
     );
@@ -162,6 +186,10 @@ class StoryCard extends StatelessWidget {
       ),
       a: TextStyle(
         color: Colors.pink.shade800,
+      ),
+      h3: TextStyle(
+        height: 2,
+        leadingDistribution: TextLeadingDistribution.even,
       ),
     );
   }
