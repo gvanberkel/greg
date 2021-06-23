@@ -323,7 +323,7 @@ class HomeScreen extends ConsumerWidget {
             storyMarkup1: logic.developerFrameworksSummary,
             storyMarkup2: logic.developerFrameworksDetail,
             role: 'Architect and primary developer',
-            moreInfoButtonText: 'More on deleloper frameworks',
+            moreInfoButtonText: 'More on developer frameworks',
             moreInfoOnPressed: () => logic.navigate(Routes.developerFrameworks),
             period: '2005 to present day',
           ),
