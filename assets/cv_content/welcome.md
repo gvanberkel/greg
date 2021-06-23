@@ -1,3 +1,3 @@
 # Welcome
 
-Hi there, I'm Greg van Berkel. I like to contribute towards technical, personl and interpersonal areas of software development for myself and other developers and developer teams. I love creating software, thinking about creating software and of course thinking about the real world in the context of how software can play a part. This is my attempt to cover some highlights of my career, to explore what I can offer and to start to imagine what could be next. Perhaps you're reading this because I've reached out to you with the hope of doing something amazing together.
+Hi there! I'm Greg. This document is my attempt to help us explore if we could do something amazing together. I cover some highliths of what I've done, what I can offer and to start to imagine what could be next.

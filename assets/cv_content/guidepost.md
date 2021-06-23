@@ -2,8 +2,6 @@
 
 *What is Guidepost:* ***Technology supported diabetes care company***  
 
-In 2011 [Guidepost](https://www.guidepost.net) tasked me with putting a development team together to build their diabetes care platform
-(Targeted, remote diabetes care).
+In 2011 [Guidepost](https://www.guidepost.net) tasked me with putting a development team together to build their remote diabetes care platform.
 
-Using a tablet, headset and the Guidepost app nurses are able to work remotely providing over-the-phone care to thousands of people with chronic illness.
-
+In 2021 Code Collective provides Guidepost with a full time agile dev team.

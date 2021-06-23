@@ -10,7 +10,7 @@ enum StoryCategory {
 }
 
 class StoryCardColour {
-  static Color forCategory(StoryCategory storyCategory) {
+  static Color forCategory(StoryCategory storyCategory, {bool wide}) {
     switch (storyCategory) {
       case StoryCategory.Business:
         return Colors.brown[200];
@@ -25,7 +25,7 @@ class StoryCardColour {
       case StoryCategory.Other:
         return Colors.blueGrey[100];
       default:
-        return Colors.transparent;
+        return wide ? Colors.transparent : Colors.grey.shade300;
     }
   }
 }

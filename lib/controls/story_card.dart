@@ -34,7 +34,7 @@ class StoryCard extends StatelessWidget {
 
     return Card(
       elevation: 0,
-      color: StoryCardColour.forCategory(storyCategory),
+      color: StoryCardColour.forCategory(storyCategory, wide: wide),
       child: wide
           ? Stack(
               children: [
@@ -125,13 +125,7 @@ class StoryCard extends StatelessWidget {
                   onTapLink: (text, href, title) {
                     launch(href);
                   },
-                  styleSheet: MarkdownStyleSheet(
-                    blockSpacing: 7,
-                    listBulletPadding: EdgeInsets.all(0),
-                    p: TextStyle(
-                      height: 1.6,
-                    ),
-                  ),
+                  styleSheet: markdownStyle(),
                   shrinkWrap: true,
                   selectable: true,
                   data: storyMarkup1,
@@ -148,19 +142,26 @@ class StoryCard extends StatelessWidget {
                 top: 8.0,
               ),
               child: MarkdownBody(
-                styleSheet: MarkdownStyleSheet(
-                  blockSpacing: 7,
-                  listBulletPadding: EdgeInsets.all(0),
-                  p: TextStyle(
-                    height: 1.6,
-                  ),
-                ),
+                styleSheet: markdownStyle(),
                 shrinkWrap: true,
                 selectable: true,
                 data: storyMarkup2,
               ),
             ),
         ],
+      ),
+    );
+  }
+
+  MarkdownStyleSheet markdownStyle() {
+    return MarkdownStyleSheet(
+      blockSpacing: 7,
+      listBulletPadding: EdgeInsets.all(0),
+      p: TextStyle(
+        height: 1.6,
+      ),
+      a: TextStyle(
+        color: Colors.pink.shade800,
       ),
     );
   }

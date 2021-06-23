@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:greg_van_berkel/constants/story_card_customisation.dart';
@@ -17,6 +15,10 @@ class HomeScreen extends ConsumerWidget {
     bool wide = isWide(context);
 
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+        backgroundColor: Colors.lightGreen[200],
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(
@@ -93,27 +95,6 @@ class HomeScreen extends ConsumerWidget {
           ),
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () async {
-      //     final Uri _emailLaunchUri = Uri(
-      //       scheme: 'mailto',
-      //       path: 'gvanberkel@gmail.com',
-      //       queryParameters: {'subject': 'Hi Greg!'},
-      //     );
-
-      //     var cl = await canLaunch(_emailLaunchUri.toString());
-
-      //     if (cl) {
-      //       launch(
-      //         _emailLaunchUri.toString(),
-      //       );
-      //     }
-      //   },
-      //   tooltip: 'Contact Greg',
-      //   child: Icon(
-      //     Icons.email,
-      //   ),
-      // ),
     );
   }
 
@@ -329,8 +310,8 @@ class HomeScreen extends ConsumerWidget {
             storyCategory: StoryCategory.Business,
             storyMarkup1: logic.guidepost,
             role:
-                'Initial software architecture and currently accountable for dev team delivery',
-            period: '2012 to present day',
+                'Developing the initial software architecture and currently accountable for dev team delivery',
+            period: '2011 to present day',
           ),
           StoryCard(
             storyCategory: StoryCategory.Coding,
@@ -395,8 +376,8 @@ class HomeScreen extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(
-                  left: 16.0,
+                padding: EdgeInsets.only(
+                  left: wide ? 16.0 : 0.0,
                   top: 16.0,
                 ),
                 child: Text(

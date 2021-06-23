@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_flicker/flutter_flicker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,6 +11,10 @@ void main() {
     dashboardRoute: Routes.home,
     routes: Routes.routes,
   );
+
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.lightGreen[200],
+  ));
 
   runApp(ProviderScope(child: AboutGregApp()));
 }
@@ -34,8 +39,14 @@ class AboutGregApp extends StatelessWidget {
         textTheme: GoogleFonts.droidSerifTextTheme(
           Theme.of(context).textTheme,
         ).copyWith(
-          bodyText2: GoogleFonts.raleway(),
+          bodyText2: GoogleFonts.raleway(
+            fontSize: 15,
+          ),
           overline: GoogleFonts.raleway(),
+        ),
+        colorScheme: ColorScheme.light().copyWith(
+          primary: Colors.lightGreen[200],
+          secondary: Colors.lightGreen[200],
         ),
       ),
     );
