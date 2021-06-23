@@ -216,6 +216,10 @@ class HomeScreen extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          if (!wide)
+            SizedBox(
+              height: 16.0,
+            ),
           StoryHeading(
             title: 'Education',
           ),
@@ -259,7 +263,7 @@ class HomeScreen extends ConsumerWidget {
             height: 16.0,
           ),
           StoryHeading(
-            title: 'About this url',
+            title: 'About this page',
           ),
           StoryCard(
             storyCategory: StoryCategory.Other,

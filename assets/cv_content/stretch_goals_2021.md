@@ -1,4 +1,4 @@
 # Stretch goals for 2021
 
 - Start a dev ecosystem for Google's Flutter team in Cape Town.
-- Start work on 'Solo Practice' a platform for supporting coaches and psychologists via AI driven whatsapp communications to their clients.
+- Start breathing life into an idea to help people running their own business connect with their clients outside of in-person interactions via AI driven whatsapp communications.

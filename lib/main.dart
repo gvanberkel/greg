@@ -50,6 +50,7 @@ class AboutGregApp extends StatelessWidget {
         ),
         textSelectionTheme: TextSelectionThemeData(
           selectionColor: Colors.pink.shade100,
+          selectionHandleColor: Colors.pink.shade200,
         ),
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
