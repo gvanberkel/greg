@@ -1,11 +1,11 @@
 {
-    "name": "greg_van_berkel",
-    "short_name": "greg_van_berkel",
+    "name": "Greg",
+    "short_name": "Greg",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#c5e1a5",
+    "theme_color": "#c5e1a5",
+    "description": "Greg van Berkel",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
