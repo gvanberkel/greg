@@ -160,16 +160,23 @@ class StoryCard extends StatelessWidget {
             ],
           ),
           if (storyMarkup2 != '')
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 8.0,
-              ),
-              child: MarkdownBody(
-                styleSheet: markdownStyle(),
-                shrinkWrap: true,
-                selectable: true,
-                data: storyMarkup2,
-              ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 8.0,
+                    ),
+                    child: MarkdownBody(
+                      styleSheet: markdownStyle(),
+                      shrinkWrap: true,
+                      selectable: true,
+                      data: storyMarkup2,
+                    ),
+                  ),
+                ),
+              ],
             ),
           if (moreInfoButtonText != null) moreInfo(),
         ],

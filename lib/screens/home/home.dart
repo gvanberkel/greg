@@ -249,7 +249,7 @@ class HomeScreen extends ConsumerWidget {
             height: 16.0,
           ),
           StoryHeading(
-            title: 'What\'s Next',
+            title: 'What\'s next',
           ),
           StoryCard(
             storyCategory: StoryCategory.Other,
