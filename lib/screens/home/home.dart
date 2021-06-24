@@ -46,10 +46,10 @@ class HomeScreen extends ConsumerWidget {
                   keyPoints(context, logic)
                 ],
               ),
-              SizedBox(
-                height: 24,
-              ),
-              storyKey(),
+              // SizedBox(
+              //   height: 24,
+              // ),
+              //storyKey(),
               SizedBox(
                 height: 24,
               ),
