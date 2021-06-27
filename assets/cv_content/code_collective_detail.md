@@ -1,4 +1,4 @@
-These are some highlights of my Code Collective journey.
+These are some highlights of my [Code Collective](https://codecollective.com) journey.
   
 - Keeping a software company profitable and interesting enough to thrive for 15 years.
 - Creating a brand that software developers relate to.
