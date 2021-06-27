@@ -70,6 +70,9 @@ class HomeScreen extends ConsumerWidget {
                   SelectableText('gvanberkel@gmail.com'),
                 ],
               ),
+              SizedBox(
+                height: 8.0,
+              ),
               InkWell(
                 onTap: () {
                   launch('https://twitter.com/gregvanberkel');
@@ -86,6 +89,26 @@ class HomeScreen extends ConsumerWidget {
                       width: 4.0,
                     ),
                     Text('gregvanberkel'),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 8.0,
+              ),
+              InkWell(
+                onTap: () {
+                  launch(
+                      'https://docs.google.com/document/d/1qG3vGA6HXbDhYJtCofZG6Z_l5ZhHXwq8OM81bAzY6ak/edit?usp=sharing');
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.print),
+                    SizedBox(
+                      width: 4.0,
+                    ),
+                    Text('Printable version'),
                   ],
                 ),
               ),
@@ -315,7 +338,7 @@ class HomeScreen extends ConsumerWidget {
           StoryCard(
             storyCategory: StoryCategory.People,
             period: '2009 to present day',
-            role: 'Agile coach and/or scrum master',
+            role: 'Agile coach and scrum master',
             storyMarkup1: logic.emotionallySafeTeams,
           ),
           StoryCard(
