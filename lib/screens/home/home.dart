@@ -27,17 +27,27 @@ class HomeScreen extends ConsumerWidget {
                 SizedBox(
                   height: 24,
                 ),
-                Text('Please request a specific version of this document.'),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
+                Wrap(
+                  children: [
+                    Text('Please request a specific version of this document.'),
+                  ],
+                ),
+                Wrap(
+                  alignment: WrapAlignment.center,
+                  crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
                     Text(
-                        'Alternatively you can visit the most recent generic version '),
+                      'Alternatively you can visit the most recent generic version',
+                    ),
                     TextButton(
                       onPressed: () => logic.navigate(Routes.g21),
                       child: Text('here.'),
                     ),
                   ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [],
                 ),
               ],
             ),
