@@ -30,7 +30,9 @@ class DeveloperFrameworksScreen extends ConsumerWidget {
                   Icons.arrow_back,
                   color: Colors.pink.shade800,
                 ),
-                onPressed: () => logic.navigate(Routes.home),
+                onPressed: () => logic.navigate(
+                  Routes.g21,
+                ),
               ),
             ),
             Padding(
