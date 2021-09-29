@@ -34,7 +34,6 @@ class AboutGregApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.lightBlue[800],
-        accentColor: Colors.cyan[600],
         cardColor: Colors.lightBlue[100],
         textTheme: GoogleFonts.droidSerifTextTheme(
           Theme.of(context).textTheme,
@@ -46,7 +45,7 @@ class AboutGregApp extends StatelessWidget {
         ),
         colorScheme: ColorScheme.light().copyWith(
           primary: Colors.lightGreen[200],
-          secondary: Colors.lightGreen[200],
+          secondary: Colors.cyan[600],
         ),
         textSelectionTheme: TextSelectionThemeData(
           selectionColor: Colors.pink.shade100,
