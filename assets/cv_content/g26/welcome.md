@@ -1,1 +1,1 @@
-Hi there! I'm Greg. This document is my attempt to help us explore if we could do interesting work together. I cover highlights of what I've done, what I can offer and I explore what could be next.
+Hi there! I'm Greg. I put this document together to help us explore if we could do interesting work together. I cover highlights of what I've done, what I can offer and I explore what could be next.

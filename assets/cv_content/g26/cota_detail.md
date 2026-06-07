@@ -4,6 +4,4 @@ Technical highlights:
 - ORM for Microsoft SQL with code generators for C# and VB.NET
 - An HTTP transport adapter for Micro service architectures allowing for separation of data access from one or more logic implementations.
 
-Cota had moderate success and has been implemented on over 10 relatively large code bases (a lot of which are still in production today).
-
-In 2019 the IP rights to Cota were bought by the Renati Group who use the technology in a number of their products.
+Cota had moderate success and has been implemented on over 10 relatively large code bases (a lot of which are still in production today). It forms the ORM foundation of many solutions built in the mid 2000s.

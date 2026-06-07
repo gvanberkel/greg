@@ -254,11 +254,11 @@ class G26Screen extends ViewModelWidget<G26ScreenLogic> {
           ),
           StoryCard(
             storyCategory: StoryCategory.Other,
-            storyMarkup1: vm.goals2021,
+            storyMarkup1: vm.goals2026,
           ),
           StoryCard(
             storyCategory: StoryCategory.Other,
-            storyMarkup1: vm.stretchGoals2021,
+            storyMarkup1: vm.stretchGoals2026,
           ),
           SizedBox(
             height: 16.0,
@@ -295,29 +295,23 @@ class G26Screen extends ViewModelWidget<G26ScreenLogic> {
             role: 'CEO, coder, team player and other odds and ends',
           ),
           StoryCard(
-            storyMarkup1: vm.renati,
+            storyCategory: StoryCategory.People,
             period: '2019 to present day',
-            role: 'Head of software development and technology',
-            storyCategory: StoryCategory.People,
-          ),
-          StoryCard(
-            storyCategory: StoryCategory.People,
-            period: '2007 to present day',
-            role: 'Product manager and lead developer',
+            role:
+                'Chief Solutions Architect (since March 2026), previously Head of software development and technology',
             storyMarkup1: vm.tfn,
           ),
           StoryCard(
             storyCategory: StoryCategory.People,
             storyMarkup1: vm.guidepost,
-            role:
-                'Developing the initial software architecture and currently accountable for dev team delivery',
-            period: '2011 to present day',
+            role: 'Founder software architect, then CTO (from 2022)',
+            period: '2011 to Feb 2026',
           ),
           StoryCard(
             storyCategory: StoryCategory.People,
-            period: '2009 to present day',
-            role: 'Agile coach and scrum master',
-            storyMarkup1: vm.emotionallySafeTeams,
+            period: 'Dec 2001 to Mar 2007',
+            role: 'Senior Software Engineer (started as a Junior Developer)',
+            storyMarkup1: vm.idi,
           ),
           StoryCard(
             storyCategory: StoryCategory.Coding,

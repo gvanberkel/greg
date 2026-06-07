@@ -1,6 +1,7 @@
 # Technology experience
 
-- C#, Dart, Javascript, Typescript, SQL, HTML, CSS, Markdown, Visual Basic.
+- Claude, Copilot 
+- C#, Dart, SQL, Javascript, Typescript, HTML, CSS, Markdown, Visual Basic.
 - Microsoft Azure (mostly serverless).
 - Azure Devops (automating all the boring stuff), Git, Cruise Control.
 - Flutter, Angular, Ionic, Knockout, Win Forms.

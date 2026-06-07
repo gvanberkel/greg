@@ -57,10 +57,10 @@ class DeveloperFrameworksG26Screen
                   ),
                   StoryCard(
                     storyCategory: StoryCategory.Coding,
-                    storyMarkup1: vm.flickerSummary,
-                    storyMarkup2: vm.flickerDetail,
+                    storyMarkup1: vm.flutterSlickSummary,
+                    storyMarkup2: vm.flutterSlickDetail,
                     role: 'Architect and primary developer',
-                    period: '2021',
+                    period: '2021 to present day',
                   ),
                   StoryCard(
                     storyCategory: StoryCategory.Coding,
