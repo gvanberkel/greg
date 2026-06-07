@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_slick/navigation/view_model_widget.dart';
 import 'package:greg_van_berkel/constants/routes.dart';
 import 'package:greg_van_berkel/constants/story_card_customisation.dart';
 import 'package:greg_van_berkel/controls/story_card.dart';
@@ -8,10 +8,16 @@ import 'package:greg_van_berkel/utils/responsiveness.dart';
 
 import 'developer_frameworks_logic.dart';
 
-class DeveloperFrameworksScreen extends ConsumerWidget {
+class DeveloperFrameworksG26Screen
+    extends ViewModelWidget<DeveloperFrameworksG26ScreenLogic> {
+  DeveloperFrameworksG26Screen({super.key});
+
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final logic = watch(developerFrameworksScreenProvider);
+  DeveloperFrameworksG26ScreenLogic createViewModel() =>
+      DeveloperFrameworksG26ScreenLogic();
+
+  @override
+  Widget buildView(BuildContext context) {
     var wide = isWideScreen(context);
 
     return Scaffold(
@@ -30,8 +36,8 @@ class DeveloperFrameworksScreen extends ConsumerWidget {
                   Icons.arrow_back,
                   color: Colors.pink.shade800,
                 ),
-                onPressed: () => logic.navigate(
-                  Routes.g21,
+                onPressed: () => vm.navigation.goTo(
+                  const G26Route(),
                 ),
               ),
             ),
@@ -43,7 +49,6 @@ class DeveloperFrameworksScreen extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  //story(context, logic),
                   SizedBox(
                     height: 24,
                   ),
@@ -52,28 +57,28 @@ class DeveloperFrameworksScreen extends ConsumerWidget {
                   ),
                   StoryCard(
                     storyCategory: StoryCategory.Coding,
-                    storyMarkup1: logic.flickerSummary,
-                    storyMarkup2: logic.flickerDetail,
+                    storyMarkup1: vm.flickerSummary,
+                    storyMarkup2: vm.flickerDetail,
                     role: 'Architect and primary developer',
                     period: '2021',
                   ),
                   StoryCard(
                     storyCategory: StoryCategory.Coding,
-                    storyMarkup1: logic.slickJSSummary,
-                    storyMarkup2: logic.slickJSDetail,
+                    storyMarkup1: vm.slickJSSummary,
+                    storyMarkup2: vm.slickJSDetail,
                     role: 'Architect and primary developer',
                     period: '2012',
                   ),
                   StoryCard(
                     storyCategory: StoryCategory.Coding,
-                    storyMarkup1: logic.webFormsSPA,
+                    storyMarkup1: vm.webFormsSPA,
                     role: 'Architect and primary developer',
                     period: '2008',
                   ),
                   StoryCard(
                     storyCategory: StoryCategory.Coding,
-                    storyMarkup1: logic.cotaSummary,
-                    storyMarkup2: logic.cotaDetail,
+                    storyMarkup1: vm.cotaSummary,
+                    storyMarkup2: vm.cotaDetail,
                     role: 'Architect and primary developer',
                     period: '2005',
                   ),
@@ -84,7 +89,7 @@ class DeveloperFrameworksScreen extends ConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextButton(
-                        onPressed: () => logic.navigate(Routes.home),
+                        onPressed: () => vm.navigation.goTo(const HomeRoute()),
                         child: Text('Back to the main document'),
                       ),
                     ],

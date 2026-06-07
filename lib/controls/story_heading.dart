@@ -4,9 +4,10 @@ class StoryHeading extends StatelessWidget {
   final String title;
 
   const StoryHeading({
-    Key key,
-    this.title,
-  }) : super(key: key);
+    super.key,
+    required this.title,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,7 +16,7 @@ class StoryHeading extends StatelessWidget {
       ),
       child: Text(
         title,
-        style: Theme.of(context).textTheme.headline4,
+        style: Theme.of(context).textTheme.headlineMedium,
       ),
     );
   }

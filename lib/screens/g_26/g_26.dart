@@ -7,13 +7,13 @@ import 'package:greg_van_berkel/controls/story_heading.dart';
 import 'package:greg_van_berkel/utils/responsiveness.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'g_21_logic.dart';
+import 'g_26_logic.dart';
 
-class G21Screen extends ViewModelWidget<G21ScreenLogic> {
-  G21Screen({super.key});
+class G26Screen extends ViewModelWidget<G26ScreenLogic> {
+  G26Screen({super.key});
 
   @override
-  G21ScreenLogic createViewModel() => G21ScreenLogic();
+  G26ScreenLogic createViewModel() => G26ScreenLogic();
 
   @override
   Widget buildView(BuildContext context) {
@@ -76,7 +76,7 @@ class G21Screen extends ViewModelWidget<G21ScreenLogic> {
               InkWell(
                 onTap: () {
                   launchUrl(Uri.parse(
-                      'https://docs.google.com/document/d/1qG3vGA6HXbDhYJtCofZG6Z_l5ZhHXwq8OM81bAzY6ak/edit?usp=sharing'));
+                      'https://docs.google.com/document/d/15NCOXhoh1e4Vjr-ziEFSQ-CcWP8zCPqmeqESynUmyOs/'));
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -326,7 +326,7 @@ class G21Screen extends ViewModelWidget<G21ScreenLogic> {
             role: 'Architect and primary developer',
             moreInfoButtonText: 'More on developer frameworks',
             moreInfoOnPressed: () =>
-                vm.navigation.goTo(const G21FrameworksRoute()),
+                vm.navigation.goTo(const G26FrameworksRoute()),
             period: '2005 to present day',
           ),
         ],

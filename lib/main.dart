@@ -1,49 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_flicker/flutter_flicker.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_slick/navigation/logic.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'constants/routes.dart';
 
 void main() {
-  FlickerConfiguration.set(
-    dashboardRoute: Routes.home,
-    routes: Routes.routes,
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final navigation = NavigationLogic(
+    routes: appRoutes,
+    initialLocation: const HomeRoute(),
   );
 
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Colors.lightGreen[200],
   ));
 
-  runApp(ProviderScope(child: AboutGregApp()));
+  runApp(AboutGregApp(navigation: navigation));
 }
 
 class AboutGregApp extends StatelessWidget {
-  final FlickerRouterDelegate _routerDelegate = FlickerRouterDelegate();
-  final FlickerRouteInformationParser _routeInformationParser =
-      FlickerRouteInformationParser();
+  AboutGregApp({super.key, required this.navigation});
+
+  final NavigationLogic navigation;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Greg van Berkel',
-      routerDelegate: _routerDelegate,
-      routeInformationParser: _routeInformationParser,
+      routerConfig: navigation.goRouter,
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.lightBlue[800],
         cardColor: Colors.lightBlue[100],
-        textTheme: GoogleFonts.droidSerifTextTheme(
-          Theme.of(context).textTheme,
-        ).copyWith(
-          bodyText2: GoogleFonts.raleway(
-            fontSize: 15,
-          ),
-          overline: GoogleFonts.raleway(),
-        ),
-        colorScheme: ColorScheme.light().copyWith(
+        textTheme:
+            Theme.of(context).textTheme.apply(fontFamily: 'DroidSerif').copyWith(
+                  bodyMedium: GoogleFonts.raleway(
+                    fontSize: 15,
+                  ),
+                  labelSmall: GoogleFonts.raleway(),
+                ),
+        colorScheme: const ColorScheme.light().copyWith(
           primary: Colors.lightGreen[200],
           secondary: Colors.cyan[600],
         ),
@@ -56,7 +55,7 @@ class AboutGregApp extends StatelessWidget {
             textStyle: GoogleFonts.raleway().copyWith(
               color: Colors.black,
             ),
-            primary: Colors.pink.shade800,
+            foregroundColor: Colors.pink.shade800,
           ),
         ),
       ),

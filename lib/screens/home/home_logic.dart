@@ -1,19 +1,6 @@
-import 'dart:async';
+import 'package:flutter_slick/navigation/view_model.dart';
 
-import 'package:flutter_flicker/flutter_flicker.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:greg_van_berkel/constants/routes.dart';
-
-class HomeScreenLogic extends BaseLogic {
+class HomeScreenLogic extends ViewModel {
   @override
-  Future<void> init() async {
-    notifyScreen(true);
-  }
-
-  void goToCurrentVersion() {
-    this.navigate(Routes.g21);
-  }
+  Future<void> initState() async {}
 }
-
-final homeScreenProvider =
-    ChangeNotifierProvider.autoDispose((ref) => HomeScreenLogic());

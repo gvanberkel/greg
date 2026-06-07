@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_slick/navigation/view_model_widget.dart';
 import 'package:greg_van_berkel/constants/routes.dart';
 
 import 'home_logic.dart';
 
-class HomeScreen extends ConsumerWidget {
-  @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final logic = watch(homeScreenProvider);
+class HomeScreen extends ViewModelWidget<HomeScreenLogic> {
+  HomeScreen({super.key});
 
+  @override
+  HomeScreenLogic createViewModel() => HomeScreenLogic();
+
+  @override
+  Widget buildView(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 0,
@@ -37,11 +40,16 @@ class HomeScreen extends ConsumerWidget {
                   crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
                     Text(
-                      'Alternatively you can visit the most recent generic version',
+                      'Alternatively you can view a generic version:',
                     ),
                     TextButton(
-                      onPressed: () => logic.navigate(Routes.g21),
-                      child: Text('here.'),
+                      onPressed: () => vm.navigation.goTo(const G26Route()),
+                      child: Text('2026'),
+                    ),
+                    Text('or'),
+                    TextButton(
+                      onPressed: () => vm.navigation.goTo(const G21Route()),
+                      child: Text('2021.'),
                     ),
                   ],
                 ),

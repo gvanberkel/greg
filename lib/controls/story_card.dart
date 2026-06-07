@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:greg_van_berkel/constants/story_card_customisation.dart';
 import 'package:greg_van_berkel/utils/responsiveness.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -7,15 +7,15 @@ import 'package:url_launcher/url_launcher.dart';
 class StoryCard extends StatelessWidget {
   final String storyMarkup1;
   final String storyMarkup2;
-  final StoryCategory storyCategory;
+  final StoryCategory? storyCategory;
   final String period;
   final String role;
   final bool expanded;
-  final String moreInfoButtonText;
-  final VoidCallback moreInfoOnPressed;
+  final String? moreInfoButtonText;
+  final VoidCallback? moreInfoOnPressed;
 
   const StoryCard({
-    Key key,
+    super.key,
     this.storyMarkup1 = '',
     this.storyMarkup2 = '',
     this.storyCategory,
@@ -24,13 +24,15 @@ class StoryCard extends StatelessWidget {
     this.expanded = false,
     this.moreInfoButtonText,
     this.moreInfoOnPressed,
-  }) : super(key: key);
+  });
+
   @override
   Widget build(BuildContext context) {
-    if (expanded)
+    if (expanded) {
       return Expanded(child: card(context));
-    else
+    } else {
       return card(context);
+    }
   }
 
   Card card(BuildContext context) {
@@ -39,19 +41,21 @@ class StoryCard extends StatelessWidget {
     return Card(
       elevation: 0,
       color: StoryCardColour.forCategory(storyCategory, wide: wide),
-      child: wide
-          ? Stack(
-              children: [
-                highlights(context),
-                content(context),
-              ],
-            )
-          : Column(
-              children: [
-                content(context),
-                highlights(context),
-              ],
-            ),
+      child: SelectionArea(
+        child: wide
+            ? Stack(
+                children: [
+                  highlights(context),
+                  content(context),
+                ],
+              )
+            : Column(
+                children: [
+                  content(context),
+                  highlights(context),
+                ],
+              ),
+      ),
     );
   }
 
@@ -60,9 +64,9 @@ class StoryCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         TextButton(
-          onPressed: this.moreInfoOnPressed,
+          onPressed: moreInfoOnPressed,
           child: Text(
-            this.moreInfoButtonText,
+            moreInfoButtonText ?? '',
           ),
         ),
       ],
@@ -97,16 +101,16 @@ class StoryCard extends StatelessWidget {
                       children: [
                         Text(
                           'My role',
-                          style: Theme.of(context).textTheme.overline,
+                          style: Theme.of(context).textTheme.labelSmall,
                         ),
                         SizedBox(
                           height: 4.0,
                         ),
                         Text(
                           role,
-                          style: Theme.of(context).textTheme.subtitle1,
+                          style: Theme.of(context).textTheme.titleMedium,
                         ),
-                        if (period != null)
+                        if (period != '')
                           Padding(
                             padding: const EdgeInsets.only(
                               top: 4.0,
@@ -116,7 +120,7 @@ class StoryCard extends StatelessWidget {
                               children: [
                                 Text(
                                   period,
-                                  style: Theme.of(context).textTheme.overline,
+                                  style: Theme.of(context).textTheme.labelSmall,
                                 ),
                               ],
                             ),
@@ -144,15 +148,7 @@ class StoryCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               Expanded(
-                child: MarkdownBody(
-                  onTapLink: (text, href, title) {
-                    launch(href);
-                  },
-                  styleSheet: markdownStyle(),
-                  shrinkWrap: true,
-                  selectable: true,
-                  data: storyMarkup1,
-                ),
+                child: markdown(storyMarkup1),
               ),
               Container(
                 width: role != '' && wide ? 300 : 0,
@@ -168,12 +164,7 @@ class StoryCard extends StatelessWidget {
                     padding: const EdgeInsets.only(
                       top: 8.0,
                     ),
-                    child: MarkdownBody(
-                      styleSheet: markdownStyle(),
-                      shrinkWrap: true,
-                      selectable: true,
-                      data: storyMarkup2,
-                    ),
+                    child: markdown(storyMarkup2),
                   ),
                 ),
               ],
@@ -181,6 +172,24 @@ class StoryCard extends StatelessWidget {
           if (moreInfoButtonText != null) moreInfo(),
         ],
       ),
+    );
+  }
+
+  // Renders markdown with non-selectable text so that link taps use a normal
+  // tap recogniser (reliable on web). Text remains selectable via the
+  // [SelectionArea] wrapping the card. Both story blocks share this so links
+  // work in the detail block too.
+  Widget markdown(String data) {
+    return MarkdownBody(
+      data: data,
+      selectable: false,
+      shrinkWrap: true,
+      styleSheet: markdownStyle(),
+      onTapLink: (text, href, title) {
+        if (href != null) {
+          launchUrl(Uri.parse(href));
+        }
+      },
     );
   }
 

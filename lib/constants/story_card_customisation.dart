@@ -10,7 +10,7 @@ enum StoryCategory {
 }
 
 class StoryCardColour {
-  static Color forCategory(StoryCategory storyCategory, {bool wide}) {
+  static Color? forCategory(StoryCategory? storyCategory, {bool wide = false}) {
     switch (storyCategory) {
       case StoryCategory.Business:
         return Colors.brown[200];
