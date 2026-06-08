@@ -8,6 +8,7 @@ class G26ScreenLogic extends ViewModel {
   String codeCollectiveDetail = '';
   String guidepost = '';
   String tfn = '';
+  String tableMountainCitySightseeing = '';
   String idi = '';
   String goals2026 = '';
   String stretchGoals2026 = '';
@@ -42,6 +43,8 @@ class G26ScreenLogic extends ViewModel {
       rootBundle.loadString('assets/cv_content/g26/technology_experience.md'),
       rootBundle.loadString('assets/cv_content/g26/developer_frameworks_summary.md'),
       rootBundle.loadString('assets/cv_content/g26/developer_frameworks_detail.md'),
+      rootBundle.loadString(
+          'assets/cv_content/g26/table_mountain_city_sightseeing.md'),
     ]);
 
     education = results[0];
@@ -62,5 +65,6 @@ class G26ScreenLogic extends ViewModel {
     technologyExperience = results[15];
     developerFrameworksSummary = results[16];
     developerFrameworksDetail = results[17];
+    tableMountainCitySightseeing = results[18];
   }
 }

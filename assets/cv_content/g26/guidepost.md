@@ -6,4 +6,4 @@ In 2011 I helped Guidepost establish a development team (within Code Collective)
 
 In 2026 - Code Collective extended their involvement by establishing partner development teams for 2 of the companies that purchased technology IP from Guidepost.
 
-At its peak Guidepost was valued at over R500 million and served thousands of patients with diabetes.
+At its peak Guidepost was valued at several hundred million (ZAR) and served thousands of people with diabetes.

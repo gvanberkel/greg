@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slick/navigation/view_model_widget.dart';
 import 'package:greg_van_berkel/constants/routes.dart';
 import 'package:greg_van_berkel/constants/story_card_customisation.dart';
+import 'package:greg_van_berkel/controls/splash.dart';
 import 'package:greg_van_berkel/controls/story_card.dart';
 import 'package:greg_van_berkel/controls/story_heading.dart';
 import 'package:greg_van_berkel/utils/responsiveness.dart';
@@ -14,6 +15,11 @@ class G26Screen extends ViewModelWidget<G26ScreenLogic> {
 
   @override
   G26ScreenLogic createViewModel() => G26ScreenLogic();
+
+  /// Splash shown while the markdown content loads. Renders just the photo and
+  /// name so something appears immediately ahead of the full document.
+  @override
+  Widget buildLoading(BuildContext context) => const Splash();
 
   @override
   Widget buildView(BuildContext context) {
@@ -300,6 +306,12 @@ class G26Screen extends ViewModelWidget<G26ScreenLogic> {
             role:
                 'Chief Solutions Architect (since March 2026), previously Head of software development and technology',
             storyMarkup1: vm.tfn,
+          ),
+          StoryCard(
+            storyCategory: StoryCategory.People,
+            period: 'since 2021',
+            role: 'Product, Software Architecture and account leadership',
+            storyMarkup1: vm.tableMountainCitySightseeing,
           ),
           StoryCard(
             storyCategory: StoryCategory.People,

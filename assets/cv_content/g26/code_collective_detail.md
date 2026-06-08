@@ -12,4 +12,4 @@ Greg's highlights at Code Collective:
 - Implementing a capability development program to support aligned skills improvements.
 - Establishing value based (not only rate based) contracts with clients.
 
-Code Collective currently has 15 software engineers, product managers and UX designers working across tourism, agriculture, logistics and health industry sectors. Code Collective has a turnover of around R1 million per month and has been consistently profitable for 19 years.
+Code Collective currently has 15 software engineers, product managers and UX designers working across tourism, agriculture, logistics and health industry sectors. Code Collective has multi-million-rand annual revenue and has been consistently profitable for 19 years.

@@ -1,7 +1,7 @@
 # Me
 
-- Lover of interesting, broadly complex technology centric context and getting sucked into good ideas.
-- Recovering dev framework developer.
+- Lover of interesting, broadly complex tech centric worlds and getting sucked into good ideas.
+- Recovering dev framework engineer.
 - Computer scientist.
 - Founder, CEO, coder, team player and other odds and ends at a software company.
 - Father (in training) to my wonderful children and husband to my partner.

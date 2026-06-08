@@ -1,9 +1,9 @@
 # What I'm looking for
 
-To contribute to a software centric domain that matters. Interesting, capable people to explore it with. Some flexibility to figure out how to live life.
+I'd love to contribute to a software centric domain that has a positive impact on the world. It would be amazing to work with interesting, capable people and have some flexibility to live life.
 
-Some roles I think I'd enjoy:
+Roles I think I'd enjoy:
+- Solutions architect
 - CTO / some tech development responsibility role.
-- Technical dev manager.
-- Lead engineer / engineer.
 - Technical product manager.
+- Conductor / principal engineer in a small high impact product team.

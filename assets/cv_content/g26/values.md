@@ -1,6 +1,6 @@
 # Values
 
-- Iterative improvement
+- Iterative exploration
 - Emotionally safe engagement
-- Understanding
+- Understanding / attunement
 - Beauty
