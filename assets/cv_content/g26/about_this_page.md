@@ -1,1 +1,1 @@
-This page is a Flutter web app. The text is stored in markdown files and converted to what you are reading using a Flutter package called flutter_markdown. 
+This page is a Flutter web app. It uses the [flutter_slick](https://pub.dev/packages/flutter_slick) package. The text is stored in markdown files and viewing this probably executed almost no javascript (if your browser supports web assembly). 
