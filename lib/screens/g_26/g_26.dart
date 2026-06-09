@@ -63,18 +63,24 @@ class G26Screen extends ViewModelWidget<G26ScreenLogic> {
               SizedBox(
                 height: 24,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.email_outlined,
-                    size: 20,
-                  ),
-                  SizedBox(
-                    width: 4.0,
-                  ),
-                  SelectableText('gvanberkel@gmail.com'),
-                ],
+              InkWell(
+                onTap: () {
+                  launchUrl(Uri.parse('mailto:gvanberkel@gmail.com'));
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.email_outlined,
+                      size: 20,
+                    ),
+                    SizedBox(
+                      width: 4.0,
+                    ),
+                    Text('gvanberkel@gmail.com'),
+                  ],
+                ),
               ),
               SizedBox(
                 height: 8.0,
